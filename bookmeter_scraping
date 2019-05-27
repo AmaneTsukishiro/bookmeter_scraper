@@ -19,8 +19,8 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gec
 
 session = requests.session()
 
-def getPageNum(id, category):
-    url = 'https://bookmeter.com/users/'+str(id)+'/books/'+category
+def getPageNum(category):
+    url = 'https://bookmeter.com/users/'+str(usr_id)+'/books/'+category
     html = session.get(url, headers=headers).text.encode('utf-8')
     soup = BeautifulSoup(html, 'html.parser')
     num = int((soup.find(class_='content__count').string))
@@ -31,7 +31,7 @@ nowdate = datetime.now()
 
 for category in ['read', 'reading', 'stacked', 'wish']:
     print('getting '+category+' books')
-    page = getPageNum(usr_id, category)
+    page = getPageNum(category)
     books = []
     for i in range(page):
         url = 'https://bookmeter.com/users/'+str(usr_id)+'/books/'+category

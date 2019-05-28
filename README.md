@@ -1,5 +1,5 @@
 # bookmeter_scraper
-This is a scraper for bookmeter.com. You can get the following data (as separate csv files):
+This is a scraper for bookmeter.com. You can get the following data (as separated csv files):
 + Information of "yonda" books: Titles, Authors, Pages, Dates you finished reading.
 + Information of "yonderu", "tsundoku" and "yomitai" books: Titles, Authors.
 ## Usage

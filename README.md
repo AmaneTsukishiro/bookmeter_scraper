@@ -1,7 +1,7 @@
 # bookmeter_scraper
 bookmeter_scraper is literally a scraper for bookmeter.com. You can get the following data (as separated csv files):
-+ Information of "yonda" books: Titles, Authors, Pages, Dates you finished reading.
-+ Information of "yonderu", "tsundoku" and "yomitai" books: Titles, Authors.
++ Information of 'yonda' books: Titles, Authors, Pages, Dates you finished reading.
++ Information of 'yonderu', 'tsundoku' and 'yomitai' books: Titles, Authors.
 ## Usage
 Prepare [Python](https://www.python.org/).
 ### bookmeter_scraper.py

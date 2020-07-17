@@ -13,7 +13,7 @@ Prepare [Python](https://www.python.org/) with BeautifulSoup and Requests.
 ### bookmeter_scraper_chrome.py
 + Install [Chrome](https://www.google.com/intl/ja/chrome/) if you have not installed.
 + Download [chromedriver.exe](http://chromedriver.chromium.org/downloads) and put it to the same directory as the source file.
-+ Edit the source file: assign your bookmeter id, email address and password to the variables `usr_id`, `email` and `password`, respectively.
++ Edit the source file: assign your bookmeter id, registered email address and bookmeter password to the variables `usr_id`, `email` and `password`, respectively.
 + `$ python bookmeter_scraper_chrome.py`.
 ## Limitations
 See https://github.com/yuishiyumeiji/bookmeter_scraper/issues/1.

@@ -20,3 +20,7 @@ See https://github.com/yuishiyumeiji/bookmeter_scraper/issues/1.
 
 ### Acknowledgement
 bookmeter_scraper is a modification of walk_to_work's [takeBooks.py](https://qiita.com/walk_to_work/items/6b0f3c6de25921a11d7b). The distribution has been permitted by xem. I appreciate xyr permission.
+
+----------------------------------------------------------------
+
+Copyright (C) 2019-2022 Amane Tsukishiro

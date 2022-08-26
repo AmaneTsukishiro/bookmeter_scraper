@@ -39,6 +39,7 @@ for category in ['read', 'reading', 'stacked', 'wish']:
             url += '&page='+str(i+1)
         else:
             url += '?page='+str(i+1)
+        time.sleep(3)
         html = session.get(url, headers=headers).text.encode('utf-8')
         soup = BeautifulSoup(html, 'html.parser')
         title_array = []
@@ -63,11 +64,10 @@ for category in ['read', 'reading', 'stacked', 'wish']:
                 listData.append(page_array[i])
                 listData.append(date_array[i])
             books.append(listData)
-        time.sleep(0.5)
     filename = str(usr_id)+'_'+category+'_'+nowdate.strftime('%Y%m%d')+'.csv'
     print('writing ' + filename)
     f = open(filename, 'w', encoding='UTF-8', newline='')
-    csvWriter = csv.writer(f)
+    csvWriter = csv.writer(f, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_NONNUMERIC)
     csvWriter.writerows(books)
     f.close()
     print('done')

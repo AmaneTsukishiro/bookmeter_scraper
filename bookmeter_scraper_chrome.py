@@ -91,7 +91,7 @@ for category in ['read', 'reading', 'stacked', 'wish']:
     filename = str(usr_id)+'_'+category+'_'+nowdate.strftime('%Y%m%d')+'.csv'
     print('writing ' + filename)
     f = open(filename, 'w', encoding='UTF-8', newline='')
-    csvWriter = csv.writer(f)
+    csvWriter = csv.writer(f, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_NONNUMERIC)
     csvWriter.writerows(books)
     f.close()
     print('done')

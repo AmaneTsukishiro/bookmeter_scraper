@@ -88,7 +88,7 @@ for category in ['read', 'reading', 'stacked', 'wish']:
                 listData.append(page_array[i])
                 listData.append(date_array[i])
             books.append(listData)
-    filename = str(usr_id)+'_'+category+'_'+nowdate.strftime('%Y%m%d')+'.csv'
+    filename = str(usr_id)+'_'+nowdate.strftime('%Y%m%d')+'_'+category+'.csv'
     print('writing ' + filename)
     f = open(filename, 'w', encoding='UTF-8', newline='')
     csvWriter = csv.writer(f, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_NONNUMERIC)

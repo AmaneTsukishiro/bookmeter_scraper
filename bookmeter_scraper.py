@@ -1,11 +1,11 @@
 # This is a modification of takeBooks.py by walk_to_work https://qiita.com/walk_to_work/items/6b0f3c6de25921a11d7b
 #
-# Get the fllowing data
-#   Read: Title*, Authors, Pages, Date
-#   Reading: Title*, Authors
-#   Stacked: Title*, Authors
-#   Wish: Title*, Authors
-# * Titles may be abbreviated (max length = 23)
+# You can get the following information:
+#   Read:
+#     Title*, Authors, Pages, Read Date
+#   Read:
+#     Title*, Authors
+# * Abbreviated (max length = 23)
 
 import requests
 import math
@@ -14,13 +14,13 @@ from bs4 import BeautifulSoup
 import csv
 from datetime import datetime
 
-usr_id = xxxxx
+user_id = '012345'
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0'}
 
 session = requests.session()
 
-def getPageNum(category):
-    url = 'https://bookmeter.com/users/'+str(usr_id)+'/books/'+category
+def getPageNum(id, category):
+    url = 'https://bookmeter.com/users/'+id+'/books/'+category
     html = session.get(url, headers=headers).text.encode('utf-8')
     soup = BeautifulSoup(html, 'html.parser')
     num = int((soup.find(class_='content__count').string))
@@ -31,10 +31,10 @@ nowdate = datetime.now()
 
 for category in ['read', 'reading', 'stacked', 'wish']:
     print('getting '+category+' books')
-    page = getPageNum(category)
+    page = getPageNum(user_id, category)
     books = []
     for i in range(page):
-        url = 'https://bookmeter.com/users/'+str(usr_id)+'/books/'+category
+        url = 'https://bookmeter.com/users/'+user_id+'/books/'+category
         if category == 'read':
             url += '&page='+str(i+1)
         else:
@@ -64,11 +64,10 @@ for category in ['read', 'reading', 'stacked', 'wish']:
                 listData.append(page_array[i])
                 listData.append(date_array[i])
             books.append(listData)
-    filename = str(usr_id)+'_'+nowdate.strftime('%Y%m%d')+'_'+category+'.csv'
+    filename = user_id + '_' + nowdate.strftime('%Y%m%d') + '_' + category + '.csv'
     print('writing ' + filename)
-    f = open(filename, 'w', encoding='UTF-8', newline='')
-    csvWriter = csv.writer(f, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_NONNUMERIC)
-    csvWriter.writerows(books)
-    f.close()
+    with open(filename, 'w', encoding='UTF-8', newline='') as f:
+        csvWriter = csv.writer(f, delimiter = ',', quotechar = '"', quoting = csv.QUOTE_NONNUMERIC)
+        csvWriter.writerows(books)
     print('done')
 

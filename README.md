@@ -50,7 +50,7 @@ bookmeter_scraper_chrome.py also requires [Chrome](https://www.google.com/intl/j
 + `$ python bookmeter_scraper_chrome.py`.
 
 ## Warning
-Do not use it very frequently (or manually adjust sleep time) to avoid overloading the server.
+Do not use it very frequently (or do adjust sleep time manually) to avoid overloading the server.
 
 ## Acknowledgement
 The lite version bookmeter_scraper.py is a modification of walk_to_work's [takeBooks.py](https://qiita.com/walk_to_work/items/6b0f3c6de25921a11d7b) and distributed with permission of the original author.
